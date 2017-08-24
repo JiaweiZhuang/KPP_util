@@ -1,0 +1,24 @@
+Steps for running KPP
+
+- Clone source code with necessary changes
+git clone https://github.com/JiaweiZhuang/KPP
+
+- Install dependencies
+./dependencies.sh
+
+- Set environment variables
+export KPP_HOME=$HOME/KPP
+export PATH=$PATH:$KPP_HOME/bin
+
+- Compile KPP text parser
+make
+
+- Make another directory for numerical code
+cp KPP/examples/small_c.kpp small_c/small_c.kpp
+kpp small_c.kpp
+(details is specified in KPP/models)
+
+- Compile and run the numerical code
+make -f Makefile_small_c
+./small_c.exe
+(set COMPILER = GFORTRAN for fortran code)
